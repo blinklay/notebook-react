@@ -1,10 +1,10 @@
 import Form from "../../components/Form/Form";
 import styles from "./Body.module.css";
 
-export default function Body() {
+export default function Body({ setNotes }) {
   return (
     <div className={styles.body}>
-      <Form />
+      <Form setNotes={setNotes} />
     </div>
   );
 }

@@ -3,6 +3,8 @@
 
   --main-text-color: #fff;
   --background-color: #181818;
+  --danger-color: #E00000;
+  --danger-color-dark: #8C0000;
   --accent-color: #312EB5;
   --accent-color-hover: #4F4CEC;
   --accent-color-active: #807DFF;
@@ -41,4 +43,23 @@ ol {
 
 .App {
   display: flex;
+}
+
+.animate-error {
+  border: 2px solid var(--danger-color);
+  animation: error-blink 0.7s infinite;
+}
+
+@keyframes error-blink {
+  0% {
+    border-color: var(--danger-color);
+  }
+
+  50% {
+    border-color: var(--danger-color-dark);
+  }
+
+  100% {
+    border-color: var(--danger-color);
+  }
 }

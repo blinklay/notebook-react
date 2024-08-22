@@ -1,12 +1,12 @@
 import JournalItem from "../JournalItem/JournalItem";
 import styles from "./JournalList.module.css";
 
-export default function JournalList() {
+export default function JournalList({ notes }) {
   return (
     <ul className={styles["journal-list"]}>
-      <JournalItem />
-      <JournalItem />
-      <JournalItem />
+      {notes.map((note) => (
+        <JournalItem key={note.id} note={note} />
+      ))}
     </ul>
   );
 }

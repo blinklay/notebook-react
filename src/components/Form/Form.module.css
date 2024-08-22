@@ -12,6 +12,7 @@
   border: none;
   outline: none;
   color: inherit;
+  border: 2px solid transparent;
 }
 
 .journal-form__title::placeholder {
@@ -40,6 +41,7 @@
   line-height: normal;
   background-color: transparent;
   border: none;
+  border: 2px solid transparent;
 }
 
 .journal-form__input::placeholder {
@@ -55,6 +57,7 @@
   font-size: 16px;
   line-height: 2;
   color: inherit;
+  border: 2px solid transparent;
 }
 
 .journal-form__text::placeholder {

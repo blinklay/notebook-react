@@ -3,12 +3,12 @@ import Header from "../../components/Header/Header";
 import JournalList from "../../components/JournalList/JournalList";
 import styles from "./Menu.module.css";
 
-export default function Menu() {
+export default function Menu({ notes }) {
   return (
     <div className={styles.menu}>
       <Header />
       <AddButton text="Новое воспоминание" />
-      <JournalList />
+      <JournalList notes={notes} />
     </div>
   );
 }
