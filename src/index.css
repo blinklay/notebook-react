@@ -1,0 +1,36 @@
+:root {
+  --main-font-family: "Source Sans 3", sans-serif;
+
+  --main-text-color: #fff;
+  --background-color: #181818;
+  --accent-color: #312EB5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--main-font-family);
+  font-weight: 400;
+  color: var(--main-text-color);
+  background-color: var(--background-color);
+  line-height: 2;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.App {
+  display: flex;
+}
