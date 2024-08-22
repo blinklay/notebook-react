@@ -5,21 +5,24 @@ import { v4 as uuidv4 } from "uuid";
 
 import folderIcon from "../../assets/folder.svg";
 import calendarIcon from "../../assets/calendar.svg";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 
-const initialFormFields = {
-  title: "",
-  date: "",
-  tag: "",
-  text: "",
-  errors: {
-    title: false,
-    date: false,
-    text: false,
-  },
-};
+function formatDate(date) {
+  return new Intl.DateTimeFormat("ru-RU", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  }).format(new Date(date));
+}
 
-export default function Form({ setNotes, dispatch, state, currentID, notes }) {
+export default function Form({
+  setNotes,
+  dispatch,
+  state,
+  currentID,
+  notes,
+  getCurrentNoteStatus,
+}) {
   const { errors } = state;
   const [formData, setFormData] = useState(null);
 
@@ -40,27 +43,30 @@ export default function Form({ setNotes, dispatch, state, currentID, notes }) {
           ...prev,
           {
             title: formData.title,
-            date: formData.date,
+            date: formatDate(formData.date),
             description: formData.text,
             tag: formData.tag,
             id: uuidv4(),
+            isActive: false,
           },
         ]);
+
+        dispatch({ type: "CLEAR_FORM" });
       }
       if (currentID) {
         const index = notes.findIndex((item) => item.id === currentID);
         const changedNotes = [...notes];
         changedNotes[index] = {
           title: formData.title,
-          date: formData.date,
+          date: formatDate(formData.date),
           description: formData.text,
           tag: formData.tag,
           id: currentID,
+          isActive: false,
         };
         setNotes(changedNotes);
+        getCurrentNoteStatus();
       }
-
-      dispatch({ type: "CLEAR_FORM" });
     }
     return () => {
       clearTimeout(timer);

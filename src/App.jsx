@@ -18,6 +18,12 @@ const formFields = {
   },
 };
 
+function formatDate(date) {
+  const [day, month, year] = date.split(".");
+  const formattedDate = `${year}-${month}-${day}`;
+  return formattedDate;
+}
+
 function App() {
   const [state, dispatch] = useReducer(reducer, formFields);
   const [currentID, setCurrentID] = useState(null);
@@ -27,18 +33,50 @@ function App() {
       : []
   );
 
+  useEffect(() => {
+    getCurrentNoteStatus();
+  }, [currentID]);
+
+  function refreshNotesStatus() {
+    setNotes((prev) =>
+      prev.map((btn) => {
+        btn.isActive = false;
+        return btn;
+      })
+    );
+  }
+
+  function getCurrentNoteStatus() {
+    setNotes((prev) =>
+      prev.map((btn) => {
+        if (btn.id === currentID) {
+          btn.isActive = true;
+        }
+        return btn;
+      })
+    );
+  }
+
   function handleClick(id) {
+    refreshNotesStatus();
+
+    if (currentID === id) {
+      getCurrentNoteStatus();
+    }
+
     const { title, date, tag, description } = notes.find(
       (item) => item.id === id
     );
     setCurrentID(id);
     dispatch({ type: "SET_TITLE", value: title });
     dispatch({ type: "SET_TAG", value: tag });
-    dispatch({ type: "SET_DATE", value: date });
+    dispatch({ type: "SET_DATE", value: formatDate(date) });
     dispatch({ type: "SET_TEXT", value: description });
   }
 
   function handleClickNewMemories() {
+    refreshNotesStatus();
+
     setCurrentID(null);
     dispatch({ type: "CLEAR_FORM" });
   }
@@ -61,6 +99,7 @@ function App() {
         state={state}
         currentID={currentID}
         notes={notes}
+        getCurrentNoteStatus={getCurrentNoteStatus}
       />
     </div>
   );

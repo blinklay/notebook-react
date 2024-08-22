@@ -6,6 +6,7 @@ export default function JournalButton({
   date,
   description,
   handleClick,
+  isActive,
   id,
 }) {
   return (
@@ -13,7 +14,7 @@ export default function JournalButton({
       onClick={() => {
         handleClick(id);
       }}
-      className={`${styles["journal-button"]}`}
+      className={`${styles["journal-button"]} ${isActive ? "active" : ""}`}
     >
       <h3 className={styles["journal-button__header"]}>{title}</h3>
       <div className={styles["journal-button__info"]}>

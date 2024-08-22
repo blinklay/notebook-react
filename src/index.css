@@ -50,6 +50,10 @@ ol {
   animation: error-blink 0.7s infinite;
 }
 
+.active {
+  background: var(--main-button-background-hover);
+}
+
 @keyframes error-blink {
   0% {
     border-color: var(--danger-color);

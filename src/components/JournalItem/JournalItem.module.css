@@ -1,0 +1,3 @@
+.journal-item.active>button {
+  background: red !important;
+}
