@@ -1,0 +1,62 @@
+.journal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.journal-form__title {
+  font-size: 32px;
+  line-height: normal;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+.journal-form__title::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.journal-form__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.journal-form__label span {
+  width: 100px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.journal-form__input {
+  width: 100%;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  background-color: transparent;
+  border: none;
+}
+
+.journal-form__input::placeholder {
+  color: inherit;
+}
+
+.journal-form__text {
+  max-height: calc(100vh - 365px);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  line-height: 2;
+  color: inherit;
+}
+
+.journal-form__text::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}

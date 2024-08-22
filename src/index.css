@@ -4,6 +4,13 @@
   --main-text-color: #fff;
   --background-color: #181818;
   --accent-color: #312EB5;
+  --accent-color-hover: #4F4CEC;
+  --accent-color-active: #807DFF;
+  --main-button-background: #1F1F1F;
+  --main-button-background-hover: #2F2F2F;
+  --main-button-background-active: #7D7D7D;
+
+  --main-transition: .3s;
 }
 
 * {
@@ -19,6 +26,7 @@ body {
   background-color: var(--background-color);
   line-height: 2;
   font-size: 16px;
+  height: 100vh;
 }
 
 a {

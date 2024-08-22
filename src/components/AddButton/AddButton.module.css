@@ -1,0 +1,26 @@
+.add-button {
+  color: inherit;
+  background-color: var(--main-button-background);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: var(--main-transition);
+  line-height: 1.6;
+  border-radius: 3px;
+
+}
+
+.add-button:hover {
+  background-color: var(--main-button-background-hover);
+}
+
+.add-button:active {
+  background-color: var(--main-button-background-active);
+  transform: scale(0.9);
+}

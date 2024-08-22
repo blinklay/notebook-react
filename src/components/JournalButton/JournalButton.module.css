@@ -1,0 +1,40 @@
+.journal-button {
+  width: 100%;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: var(--main-button-background);
+  border: none;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.journal-button:hover {
+  background-color: var(--main-button-background-hover);
+}
+
+.journal-button:active {
+  transform: scale(0.9);
+  background-color: var(--main-button-background-active);
+}
+
+.journal-button__header {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--main-text-color);
+}
+
+.journal-button__info {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.journal-button__date {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.journal-button__description {
+  color: rgba(255, 255, 255, 0.6);
+}
