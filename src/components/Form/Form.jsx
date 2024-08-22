@@ -19,67 +19,7 @@ const initialFormFields = {
   },
 };
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "SET_TITLE":
-      return {
-        ...state,
-        title: action.value,
-      };
-    case "SET_TAG":
-      return {
-        ...state,
-        tag: action.value,
-      };
-    case "SET_DATE":
-      return {
-        ...state,
-        date: action.value,
-      };
-    case "SET_TEXT":
-      return {
-        ...state,
-        text: action.value,
-      };
-    case "VALIDATE_FORM":
-      const errors = {
-        title: false,
-        date: false,
-        text: false,
-      };
-
-      if (state.title === "") errors.title = true;
-      if (state.date === "") errors.date = true;
-      if (state.text === "") errors.text = true;
-
-      return {
-        ...state,
-        errors,
-      };
-    case "RESET_ERROR":
-      return {
-        ...state,
-        errors: {
-          title: false,
-          date: false,
-          text: false,
-        },
-      };
-    case "CLEAR_FORM":
-      return {
-        ...state,
-        title: "",
-        date: "",
-        tag: "",
-        text: "",
-      };
-    default:
-      return state;
-  }
-}
-
-export default function Form({ setNotes }) {
-  const [state, dispatch] = useReducer(reducer, initialFormFields);
+export default function Form({ setNotes, dispatch, state, currentID, notes }) {
   const { errors } = state;
   const [formData, setFormData] = useState(null);
 
@@ -95,16 +35,30 @@ export default function Form({ setNotes }) {
       return;
     }
     if (formData) {
-      setNotes((prev) => [
-        ...prev,
-        {
+      if (!currentID) {
+        setNotes((prev) => [
+          ...prev,
+          {
+            title: formData.title,
+            date: formData.date,
+            description: formData.text,
+            tag: formData.tag,
+            id: uuidv4(),
+          },
+        ]);
+      }
+      if (currentID) {
+        const index = notes.findIndex((item) => item.id === currentID);
+        const changedNotes = [...notes];
+        changedNotes[index] = {
           title: formData.title,
           date: formData.date,
           description: formData.text,
           tag: formData.tag,
-          id: uuidv4(),
-        },
-      ]);
+          id: currentID,
+        };
+        setNotes(changedNotes);
+      }
 
       dispatch({ type: "CLEAR_FORM" });
     }
