@@ -54,6 +54,14 @@ ol {
   background: var(--main-button-background-hover);
 }
 
+.hide {
+  transform: translateX(-100%);
+}
+
+.rotate-menu-btn {
+  transform: rotate(-180deg);
+}
+
 @keyframes error-blink {
   0% {
     border-color: var(--danger-color);
@@ -65,5 +73,12 @@ ol {
 
   100% {
     border-color: var(--danger-color);
+  }
+}
+
+@media (max-width: 815px) {
+  .App {
+    display: initial;
+    position: relative;
   }
 }

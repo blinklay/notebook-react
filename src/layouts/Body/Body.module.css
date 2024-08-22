@@ -2,3 +2,9 @@
   flex: 1;
   padding: 50px;
 }
+
+@media (max-width: 815px) {
+  .body {
+    flex: 0;
+  }
+}
