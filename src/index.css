@@ -62,6 +62,14 @@ ol {
   transform: rotate(-180deg);
 }
 
+.danger-btn {
+  background-color: var(--danger-color);
+}
+
+.danger-btn:hover {
+  background-color: var(--danger-color-dark);
+}
+
 @keyframes error-blink {
   0% {
     border-color: var(--danger-color);

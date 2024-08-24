@@ -20,7 +20,13 @@ const formFields = {
 
 function formatDate(date) {
   const [day, month, year] = date.split(".");
-  const formattedDate = `${year}-${month}-${day}`;
+  let changedYear = year;
+
+  if (year.length === 1) changedYear = year + "000";
+  if (year.length === 2) changedYear = year + "00";
+  if (year.length === 3) changedYear = year + "0";
+
+  const formattedDate = `${changedYear}-${month}-${day}`;
   return formattedDate;
 }
 
@@ -100,6 +106,7 @@ function App() {
         currentID={currentID}
         notes={notes}
         getCurrentNoteStatus={getCurrentNoteStatus}
+        setCurrentID={setCurrentID}
       />
     </div>
   );

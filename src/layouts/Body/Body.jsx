@@ -9,6 +9,7 @@ export default function Body({
   currentID,
   notes,
   getCurrentNoteStatus,
+  setCurrentID,
 }) {
   return (
     <div className={styles.body}>
@@ -20,6 +21,7 @@ export default function Body({
         state={state}
         notes={notes}
         getCurrentNoteStatus={getCurrentNoteStatus}
+        setCurrentID={setCurrentID}
       />
     </div>
   );

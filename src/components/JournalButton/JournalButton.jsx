@@ -10,7 +10,7 @@ export default function JournalButton({
   id,
 }) {
   function truncateText(text) {
-    if (text.length > 8) {
+    if (text.length > 15) {
       return text.slice(0, 15) + "...";
     }
     return text;

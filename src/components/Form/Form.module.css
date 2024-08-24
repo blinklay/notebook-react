@@ -100,3 +100,8 @@
     font-size: 21px;
   }
 }
+
+.journal-form__btn-row {
+  display: flex;
+  gap: 10px;
+}

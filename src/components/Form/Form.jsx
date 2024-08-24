@@ -22,6 +22,7 @@ export default function Form({
   currentID,
   notes,
   getCurrentNoteStatus,
+  setCurrentID,
 }) {
   const { errors } = state;
   const [formData, setFormData] = useState(null);
@@ -84,6 +85,12 @@ export default function Form({
     setFormData(formObj);
   }
 
+  function removeNote() {
+    setNotes((prev) => prev.filter((item) => item.id !== currentID));
+    setCurrentID(null);
+    dispatch({ type: "CLEAR_FORM" });
+  }
+
   return (
     <form className={styles["journal-form"]} onSubmit={submitForm}>
       <input
@@ -140,7 +147,12 @@ export default function Form({
         placeholder="Текст вашего воспоминания..."
       ></textarea>
 
-      <Button text="Сохранить" />
+      <div className={classNames(styles["journal-form__btn-row"])}>
+        <Button text="Сохранить" />
+        {currentID && (
+          <Button onCLick={removeNote} text="Удалить" type="danger" />
+        )}
+      </div>
     </form>
   );
 }
