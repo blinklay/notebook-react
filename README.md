@@ -1,8 +1,21 @@
-# React + Vite
+# Notebook React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Screenshot](./public/screenshot.png)
 
-Currently, two official plugins are available:
+## Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Notebook React** — это минималистичное приложение для заметок, разработанное с использованием React и Vite. Проект представляет собой простое, но мощное веб-приложение, позволяющее пользователям создавать, редактировать и удалять заметки. Основное внимание уделено простоте интерфейса и быстродействию.
+
+## Стек технологий
+
+- **React**: Фреймворк для создания пользовательских интерфейсов.
+- **Vite**: Быстрая сборка и разработка проекта.
+- **ESLint**: Инструмент для анализа кода.
+
+## Установка
+
+```bash
+git clone https://github.com/blinklay/notebook-react.git
+cd notebook-react
+npm install
+npm run dev
