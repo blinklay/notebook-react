@@ -1,5 +1,7 @@
 # Notebook React
 
+[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue)](https://blinklay.github.io/notebook-react/)
+
 ![Screenshot](./public/screenshot.png)
 
 ## Описание
